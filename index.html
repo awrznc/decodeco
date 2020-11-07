@@ -24,7 +24,7 @@ body {
   text-align: center;
 }
 
-#text-button {
+#button {
   cursor: pointer;
   color: #fff;
   background-color:#323a45;
@@ -43,9 +43,18 @@ body {
     </style>
     <script type="module">
       import { decodeco } from './src/decodeco.js';
-      document.getElementById("text-button").onclick = function() {
-        document.forms.form1.area2.value = decodeco(document.forms.form1.area.value);
+
+      // button
+      document.getElementById("button").onclick = function() {
+        document.forms.form.area2.value = decodeco(document.forms.form.area.value);
       };
+
+      // query
+      let url = location.href.split(/(?<=^[^=]+?)=/);
+      if (url.length === 2) {
+        document.forms.form.area.value = url[1];
+        document.forms.form.area2.value = decodeco(url[1]);
+      }
       </script>
   </head>
 
@@ -53,13 +62,12 @@ body {
     <a target="_blank" href="https://github.com/awrznc/decodeco"><h1 class="outline">decodeco</h1></a><br>
     <strong id="message">URIエンコードされた文字列やUTF-8の文字コードをデコードします ₍₍(ง˘ω˘)ว⁾⁾</strong><br><br>
     <div>
-      <form name='form1'>
+      <form name='form'>
         <textarea name='area' cols="80" rows="8">Decode target</textarea><br><br>
-        <div id="text-button"><strong id="decode"><p>Decode! ₍₍(ง˘ω˘)ว⁾⁾</p></strong></div><br>
+        <div id="button"><strong id="decode"><p>Decode! ₍₍(ง˘ω˘)ว⁾⁾</p></strong></div><br>
         <textarea name='area2' cols="80" rows="8">Result</textarea><br>
       </form>
     </div>
-    <br>
   </body>
 
 </html>
