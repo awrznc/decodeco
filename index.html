@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title>decodeco</title>
+    <style type="text/css">
+
+.outline {
+  display        : inline-block;
+  color          : #ffffff;
+  font-size      : 36pt;
+  letter-spacing : 4px;
+  text-shadow    :
+       2px  2px 1px#323a45,
+      -2px  2px 1px#323a45,
+       2px -2px 1px#323a45,
+      -2px -2px 1px#323a45,
+       2px  0px 1px#323a45,
+       0px  2px 1px#323a45,
+      -2px  0px 1px#323a45,
+       0px -2px 1px#323a45;
+}
+
+body {
+  text-align: center;
+}
+
+#text-button {
+  cursor: pointer;
+  color: #fff;
+  background-color:#323a45;
+  border-radius: 100vh;
+  width: 200px;
+  height: 56px;
+  margin: auto;
+
+}
+
+#decode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    </style>
+    <script type="module">
+      import { decodeco } from './src/decodeco.js';
+      document.getElementById("text-button").onclick = function() {
+        document.forms.form1.area2.value = decodeco(document.forms.form1.area.value);
+      };
+      </script>
+  </head>
+
+  <body>
+    <a target="_blank" href="https://github.com/awrznc/decodeco"><h1 class="outline">decodeco</h1></a><br>
+    <strong id="message">URIエンコードされた文字列やUTF-8の文字コードをデコードします ₍₍(ง˘ω˘)ว⁾⁾</strong><br><br>
+    <div>
+      <form name='form1'>
+        <textarea name='area' cols="80" rows="8">Decode target</textarea><br><br>
+        <div id="text-button"><strong id="decode"><p>Decode! ₍₍(ง˘ω˘)ว⁾⁾</p></strong></div><br>
+        <textarea name='area2' cols="80" rows="8">Result</textarea><br>
+      </form>
+    </div>
+    <br>
+  </body>
+
+</html>
