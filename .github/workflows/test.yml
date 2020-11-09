@@ -1,0 +1,18 @@
+name: Test
+
+# test timings
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: node:15.1
+    steps:
+
+    # Get Files
+    - name: Get files
+      uses: actions/checkout@v1
+
+    # Test
+    - name: Test
+      run: "echo '{ \"type\": \"module\" }' > package.json && node --experimental-modules ./src/test.js"
