@@ -37,6 +37,7 @@ function test() {
     it('  UTF-8のバイト文字列を渡した場合decodeされる', () =>{
       expect('でこ', decodeco("\\xe3\\x81\\xa7\\xe3\\x81\\x93"));
       expect('でこ', decodeco("で\\xe3\\x81\\x93"));
+      expect('でこ', decodeco("で%5Cxe3%5Cx81%5Cx93"));
     });
     // it('  URLエンコード済みの文字列かつ、Unicodeエンコード済みの文字列を渡した場合エラーが発生する', () =>{
     //   expect(original, decodeco(`${encodeURI(original)}${escape(original)}`));
@@ -45,3 +46,4 @@ function test() {
 }
 
 test();
+

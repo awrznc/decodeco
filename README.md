@@ -27,4 +27,9 @@ curl "https://decodeco.vercel.app/api/v1/decode?target=\xe3\x81\xa7\xe3\x81\x93"
 npm install -g http-server
 /usr/local/lib/node_modules/http-server/bin/http-server -p 5000
 #=> http://localhost:5000/
+
+# test
+echo '{ "type": "module" }' > package.json
+node --experimental-modules ./src/test.js
 ```
+
