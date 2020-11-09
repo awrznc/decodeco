@@ -47,6 +47,7 @@ body {
       // button
       document.getElementById("button").onclick = function() {
         document.forms.form.area2.value = decodeco(document.forms.form.area.value);
+        history.replaceState('','',`?target=${decodeco(document.forms.form.area.value)}`);
       };
 
       // query
