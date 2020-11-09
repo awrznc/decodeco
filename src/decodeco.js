@@ -7,19 +7,18 @@ function decodeUTF8(encoded_string) {
 }
 
 export function decodeco(string) {
-  let result = '';
-
-  // UTF-8 decode
-  try {
-    result = decodeUTF8(string);
-  } catch(error) {
-    // console.error(error);
-  }
+  let result = string;
 
   // URI decode
   try {
     result = decodeURI(result);
-    return result;
+  } catch(error) {
+    // console.error(error);
+  }
+
+  // UTF-8 decode
+  try {
+    result = decodeUTF8(result);
   } catch(error) {
     // console.error(error);
   }
@@ -27,10 +26,10 @@ export function decodeco(string) {
   // Unicode decode
   try {
     result = unescape(result);
-    return result;
   } catch(error) {
     // console.error(error);
   }
 
   return result;
 }
+
